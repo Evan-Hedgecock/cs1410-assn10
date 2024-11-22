@@ -16,7 +16,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 //        If this is first node inserted, assign to root node
         if (root == null) {
             root = newNode;
-            return true;
         } else {
             TreeNode<T> parent = null;
             TreeNode<T> node = root;
@@ -36,11 +35,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
             } else { // attach to the right
                 parent.right = newNode;
             }
-            return true;
         }
+        return true;
     }
     public void display(String message) {
         System.out.println(message);
+        displayInOrder(root);
     }
     private void displayInOrder(TreeNode<T> node) {
         if (node == null) return;
@@ -62,7 +62,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
     private boolean search(TreeNode<T> node, T data) {
         if (node == null) return false;
-        if (node.data == data) return true;
+        if (node.data.equals(data)) return true;
         if (data.compareTo(node.data) < 0) { // value must be on the left
             return search(node.left, data);
         } else {
@@ -97,7 +97,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
             } else {
                 parent.right = node.right;
             }
-            return true;
         } else {
 /* If there is a left child, we have to so something more complex.
 1. Find the right-most node of the left subtree
@@ -121,8 +120,8 @@ which side the right most is found on.
             } else {
                 parentOfRightMost.right = rightMost.left;
             }
-            return true;
         }
+        return true;
     }
     public int numberNodes() {
         if (root == null) return 0;
