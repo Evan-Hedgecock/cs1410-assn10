@@ -7,7 +7,7 @@ public class SpellChecker {
 
         // Step 2: Read the dictionary and report the tree statistics
         BinarySearchTree<String> dictionary = readDictionary();
-        reportTreeStats(dictionary);
+//        reportTreeStats(dictionary);
 
         // Step 3: Perform spell checking
     }
@@ -35,7 +35,7 @@ public class SpellChecker {
         //
         // Make sure it displays in sorted order
         tree.display("--- Initial Tree State ---");
-        reportTreeStats(tree);
+//        reportTreeStats(tree);
 
         //
         // Try to add a duplicate
@@ -43,32 +43,32 @@ public class SpellChecker {
             System.out.println("oops, shouldn't have returned true from the insert");
         }
         tree.display("--- After Adding Duplicate ---");
-        reportTreeStats(tree);
+//        reportTreeStats(tree);
 
         //
         // Remove some existing values from the tree
         tree.remove("Olga");    // Root node
         tree.remove("Arden");   // a leaf node
         tree.display("--- Removing Existing Values ---");
-        reportTreeStats(tree);
+//        reportTreeStats(tree);
 
         //
         // Remove a value that was never in the tree, hope it doesn't crash!
         tree.remove("Karl");
         tree.display("--- Removing A Non-Existent Value ---");
-        reportTreeStats(tree);
+//        reportTreeStats(tree);
     }
 
     /**
      * This method is used to report on some stats about the BST
      */
-    public static void reportTreeStats(BinarySearchTree<String> tree) {
-        System.out.println("-- Tree Stats --");
-        System.out.printf("Total Nodes : %d\n", tree.numberNodes());
-        System.out.printf("Leaf Nodes  : %d\n", tree.numberLeafNodes());
-        System.out.printf("Tree Height : %d\n", tree.height());
-    }
-
+//     public static void reportTreeStats(BinarySearchTree<String> tree) {
+//         System.out.println("-- Tree Stats --");
+//         System.out.printf("Total Nodes : %d\n", tree.numberNodes());
+//         System.out.printf("Leaf Nodes  : %d\n", tree.numberLeafNodes());
+//         System.out.printf("Tree Height : %d\n", tree.height());
+//     }
+//
     /**
      * This method reads the dictionary and constructs the BST to be
      * used for the spell checking.

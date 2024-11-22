@@ -8,114 +8,114 @@ public class BinarySearchTreeTest {
     public void BinarySearchTreeConstructor() {
         BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
 
-        Assert.assertNotNull ("BinarySearchTree must not be null", intBst);
+        Assert.assertNotNull("BinarySearchTree must not be null", intBst);
     }
 
-    @org.junit.Test
-    public void BinarySearchTreeInsertTest1() {
-        BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
-                4,
-                2, 6,
-                1, 3, 5, 7
-        };
-        int count = 0;
+          @org.junit.Test
+      public void BinarySearchTreeInsertTest1() {
+          BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
+          int [] array = {
+                  4,
+                  2, 6,
+                  1, 3, 5, 7
+          };
+          int count = 0;
 
-        for (int item : array) {
-            count++;
-            Assert.assertTrue(String.format("BST failed to insert %s and return true", Integer.toString(item)), intBst.insert(item));
-            Assert.assertEquals("BST Insert must correctly handle the number of nodes", count, intBst.numberNodes());
-        }
-    }
+          for (int item : array) {
+              count++;
+              Assert.assertTrue(String.format("BST failed to insert %s and return true", Integer.toString(item)), intBst.insert(item));
+              Assert.assertEquals("BST Insert must correctly handle the number of nodes", count, intBst.numberNodes());
+          }
+      }
 
-    @org.junit.Test
-    public void BinarySearchTreeInsertTest2() {
-        BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
-                10,
-                6,           14,
-                4, 8,        12, 16,
-                3, 5, 7, 9,  11, 13, 15, 17
-        };
-        int count = 0;
+      @org.junit.Test
+      public void BinarySearchTreeInsertTest2() {
+          BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
+          int [] array = {
+                  10,
+                  6,           14,
+                  4, 8,        12, 16,
+                  3, 5, 7, 9,  11, 13, 15, 17
+          };
+          int count = 0;
 
-        for (int item : array) {
-            count++;
-            Assert.assertTrue(String.format("BST failed to insert %s and return true", Integer.toString(item)), intBst.insert(item));
-            Assert.assertEquals("BST Insert must correctly handle the number of nodes", count, intBst.numberNodes());
-        }
+          for (int item : array) {
+              count++;
+              Assert.assertTrue(String.format("BST failed to insert %s and return true", Integer.toString(item)), intBst.insert(item));
+              Assert.assertEquals("BST Insert must correctly handle the number of nodes", count, intBst.numberNodes());
+          }
 
-        for (int item : array) {
-            Assert.assertFalse(String.format("BST failed to handle re-inserting %s and returning false", Integer.toString(item)), intBst.insert(item));
-        }
-    }
+          for (int item : array) {
+              Assert.assertFalse(String.format("BST failed to handle re-inserting %s and returning false", Integer.toString(item)), intBst.insert(item));
+          }
+      }
 
-    @org.junit.Test
-    public void BinarySearchTreeRemoveLeafTest1() {
-        BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
-                4,
-                2, 6,
-                1, 3, 5, 7
-        };
-        int count = array.length;
+      @org.junit.Test
+      public void BinarySearchTreeRemoveLeafTest1() {
+          BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
+          int [] array = {
+                  4,
+                  2, 6,
+                  1, 3, 5, 7
+          };
+          int count = array.length;
 
-        for (int item : array) {
-            intBst.insert(item);
-        }
+          for (int item : array) {
+              intBst.insert(item);
+          }
 
-        Assert.assertEquals("BST returned incorrect number of nodes", count, intBst.numberNodes());
-        Assert.assertTrue(intBst.remove(1));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+          Assert.assertEquals("BST returned incorrect number of nodes", count, intBst.numberNodes());
+          Assert.assertTrue(intBst.remove(1));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
 
-        Assert.assertTrue(intBst.remove(3));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+          Assert.assertTrue(intBst.remove(3));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
 
-        Assert.assertTrue(intBst.remove(5));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+          Assert.assertTrue(intBst.remove(5));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
 
-        Assert.assertTrue(intBst.remove(7));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+          Assert.assertTrue(intBst.remove(7));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
 
-        Assert.assertTrue(intBst.remove(2));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+          Assert.assertTrue(intBst.remove(2));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
 
-        Assert.assertTrue(intBst.remove(6));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+          Assert.assertTrue(intBst.remove(6));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
 
-        Assert.assertTrue(intBst.remove(4));
-        Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
-    }
+          Assert.assertTrue(intBst.remove(4));
+          Assert.assertEquals("BST returned incorrect number of nodes after remove", --count, intBst.numberNodes());
+      }
 
-    @org.junit.Test
-    public void BinarySearchTreeRemoveParentTest1() {
-        BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
-                10,
-                6,           14,
-                4, 8,        12, 16,
-                3, 5, 7, 9,  11, 13, 15, 17
-        };
-        int count = array.length;
+      @org.junit.Test
+      public void BinarySearchTreeRemoveParentTest1() {
+          BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
+          int [] array = {
+                  10,
+                  6,           14,
+                  4, 8,        12, 16,
+                  3, 5, 7, 9,  11, 13, 15, 17
+          };
+          int count = array.length;
 
-        for (int item : array) {
-            intBst.insert(item);
-        }
+          for (int item : array) {
+              intBst.insert(item);
+          }
 
-        for (int item : array) {
-            Assert.assertTrue(String.format("BST returned response when removing parent %d", item), intBst.remove(item));
-            Assert.assertEquals(String.format("BST returned incorrect number of nodes after removal of parent %d", item), --count, intBst.numberNodes());
-        }
-    }
+          for (int item : array) {
+              Assert.assertTrue(String.format("BST returned response when removing parent %d", item), intBst.remove(item));
+              Assert.assertEquals(String.format("BST returned incorrect number of nodes after removal of parent %d", item), --count, intBst.numberNodes());
+          }
+      }
 
     @org.junit.Test
     public void BinarySearchTreeSearchTest1() {
         BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
+        int[] array = {
                 10,
-                6,           14,
-                4, 8,        12, 16,
-                3, 5, 7, 9,  11, 13, 15, 17
+                6, 14,
+                4, 8, 12, 16,
+                3, 5, 7, 9, 11, 13, 15, 17
         };
 
         for (int item : array) {
@@ -127,11 +127,11 @@ public class BinarySearchTreeTest {
     @org.junit.Test
     public void BinarySearchTreeSearchTest2() {
         BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
+        int[] array = {
                 10,
-                6,           14,
-                4, 8,        12, 16,
-                3, 5, 7, 9,  11, 13, 15, 17
+                6, 14,
+                4, 8, 12, 16,
+                3, 5, 7, 9, 11, 13, 15, 17
         };
         ArrayList<Integer> curIntList = new ArrayList<>();
 
@@ -139,7 +139,7 @@ public class BinarySearchTreeTest {
             intBst.insert(item);
             Assert.assertTrue(String.format("BST failed to find node %d", item), intBst.search(item));
 
-            for ( int tmpItem : curIntList) {
+            for (int tmpItem : curIntList) {
                 Assert.assertTrue(String.format("BST failed to find node %d after inserting %d", tmpItem, item), intBst.search(tmpItem));
             }
 
@@ -150,14 +150,13 @@ public class BinarySearchTreeTest {
     @org.junit.Test
     public void BinarySearchTreeSearchTest3() {
         BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
-        int [] array = {
+        int[] array = {
                 10,
-                6,           14,
-                4, 8,        12, 16,
-                3, 5, 7, 9,  11, 13, 15, 17
+                6, 14,
+                4, 8, 12, 16,
+                3, 5, 7, 9, 11, 13, 15, 17
         };
         ArrayList<Integer> curIntList = new ArrayList<>();
-
         for (int item : array) {
             intBst.insert(item);
             curIntList.add(item);
@@ -166,10 +165,10 @@ public class BinarySearchTreeTest {
 
         for (int item : array) {
             intBst.remove(item);
-            curIntList.remove(0); // Pop the top
+            curIntList.removeFirst(); // Pop the top
             Assert.assertFalse(String.format("BST still find node %d after it was removed", item), intBst.search(item));
 
-            for ( int tmpItem : curIntList) {
+            for (int tmpItem : curIntList) {
                 Assert.assertTrue(String.format("BST failed to find node %d after removing %d", tmpItem, item), intBst.search(tmpItem));
             }
 
@@ -244,11 +243,11 @@ public class BinarySearchTreeTest {
 
         Assert.assertEquals("BST must correctly identify leaf nodes on an unbalanced tree", 1, intBst.numberLeafNodes());
 
-        // Removed these tests because the number of leaf nodes can change depending upon the 'delete' implementation
-        // for (int item : array) {
-        //     Assert.assertEquals("BST must correctly identify leaf nodes on an unbalanced tree after a root removal", 1, intBst.numberLeafNodes());
-        //     intBst.remove(item);
-        // }
+//             Removed these tests because the number of leaf nodes can change depending upon the 'delete' implementation
+//             for (int item : array) {
+//                 Assert.assertEquals("BST must correctly identify leaf nodes on an unbalanced tree after a root removal", 1, intBst.numberLeafNodes());
+//                 intBst.remove(item);
+//             }
     }
 
     @org.junit.Test
@@ -281,5 +280,15 @@ public class BinarySearchTreeTest {
             int logVal = (int)(Math.log(count) / Math.log(2));
             Assert.assertEquals("BST must correctly calculate height on a balanced tree", logVal, intBst.height());
         }
+    }
+
+    // Added Test to ensure tree with only root node is counted correctly
+    // Starting height at -1 and then recursing to get height of rest of tree works with larger tree, but returns -1
+    // when only the root node is added
+    @org.junit.Test
+    public void BinarySearchTreeHeightTest3() {
+        BinarySearchTree<Integer> intBst = new BinarySearchTree<>();
+        intBst.insert(10);
+        Assert.assertEquals("BST must correctly calculate height on a balanced tree", 0, intBst.height());
     }
 }

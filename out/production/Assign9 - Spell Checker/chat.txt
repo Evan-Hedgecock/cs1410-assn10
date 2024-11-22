@@ -1,0 +1,36 @@
+Me: Do not give me any code to answer this problem, I just want help thinking through it.
+
+I'm trying to write a recursive function to calculate the height of a BST. The helper function should just return 0 if the root is null, and then return the value of the recursiveHeight function.
+
+The recursiveHeight function should iterate through each level of the tree, returning 1 whenever a new level is reached. Comparing the height of recursing right and left and just adding whichever side is greater works for an unbalanced tree, but I would have to write another conditional for if their equal and that feels too messy. I could also just count the number of nodes and perform a logarithm expression to calculate what the height should be, but I want it to be exact for the tree I'm looking at always.
+
+I'm struggling to understand how to only increment the height when going either left or right, without knowing which side is longer. If it's a balanced tree, it could also just recurse in one direction always and count those...
+
+Claude: Let me help you think through this step by step.
+        First, let's clarify what we're trying to achieve. The height of a BST is the number of edges in the longest path from the root to any leaf node. Or in other words, it's the number of levels minus 1 (if we consider the root as level 1).
+        Let's break down your thought process:
+
+        You correctly identified that we need a base case where null returns 0
+        You see that we need to somehow compare left and right subtrees
+        You're concerned about handling equal heights elegantly
+        You're looking for a way to count levels without explicitly checking which side is longer
+
+        Here's the key insight that might help: Instead of thinking about "incrementing when going left or right", think about building the height from the bottom up. At each node:
+
+        Get the height of the left subtree
+        Get the height of the right subtree
+        The height at the current node will be the maximum of these two values, plus 1
+
+        Why does this work? Because:
+
+        Each recursive call gets us the complete height of that subtree
+        By taking the maximum, we automatically handle both balanced and unbalanced cases
+        The "+1" accounts for the current level, regardless of which subtree was taller
+
+        So rather than trying to increment as you go down, let the recursion build the height as it comes back up. This eliminates the need for:
+
+        Tracking which direction you're going
+        Special handling for equal heights
+        Knowing about balance in advance
+
+        Does this help clarify how to think about the problem? Would you like me to elaborate on any part?
